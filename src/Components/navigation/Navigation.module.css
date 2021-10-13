@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+}
+
+.navLink {
+  display: inline-block;
+  font-size: 26px;
+  color: black;
+  margin-right: 25px;
+}
+
+.navLinkActive {
+  font-weight: 500;
+  color: #00bfff;
+}
