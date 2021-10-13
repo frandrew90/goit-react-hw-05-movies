@@ -36,7 +36,9 @@ const MovieDeteilsPage = ({ movie }) => {
         <p> {movie.overview} </p>
         <p>Genres </p>
         {movie.genres.map((gener) => (
-          <span className={s.genersItem}>{gener.name}</span>
+          <span key={gener.name} className={s.genersItem}>
+            {gener.name}
+          </span>
         ))}
       </div>
     </>
