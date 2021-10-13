@@ -1,0 +1,9 @@
+.poster {
+  width: 250px;
+  height: 350px;
+}
+
+.genersItem {
+  display: inline-block;
+  margin-right: 10px;
+}

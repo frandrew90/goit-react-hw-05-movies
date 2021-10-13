@@ -9,7 +9,7 @@ const HomePage = ({ trendingMovies }) => {
     <ul className={s.trendingList}>
       {trendingMovies.map((movie) => (
         <li className={s.trendingListItem} key={movie.id}>
-          <Link to={`${url}${movie.id}`}> {movie.title}</Link>
+          <Link to={`/movies/${movie.id}`}> {movie.title}</Link>
         </li>
       ))}
     </ul>
