@@ -4,7 +4,7 @@ import s from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
-    <>
+    <nav>
       <NavLink
         exact
         to="/"
@@ -22,7 +22,7 @@ const Navigation = () => {
       >
         Movies
       </NavLink>
-    </>
+    </nav>
   );
 };
 

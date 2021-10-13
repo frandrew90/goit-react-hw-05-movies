@@ -1,13 +1,29 @@
 import React from "react";
+import { Switch, Route } from "react-router";
 import Loader from "../Components/loader/Loader";
-import Navigation from "./navigation/Navigation";
+import HomeView from "../views/homeView/HomeView";
+import Header from "./header/Header";
+import MoviesView from "../views/moviesView/MoviesView";
+import NotFoundView from "../views/notFoundView/NotFoundView";
 
 const App = () => {
   return (
     <>
-      <Navigation />
-      <h2>Loading...</h2>
-      <Loader />
+      <Header />
+
+      <Switch>
+        <Route exact path="/">
+          <HomeView />
+        </Route>
+
+        <Route exact path="/movies">
+          <MoviesView />
+        </Route>
+
+        <Route>
+          <NotFoundView />
+        </Route>
+      </Switch>
     </>
   );
 };
