@@ -4,7 +4,6 @@ import HomeView from "../views/homeView/HomeView";
 import Header from "../Components/header/Header";
 import Loader from "../Components/loader/Loader";
 import s from "./App.module.css";
-
 const MoviesView = lazy(() =>
   import("../views/moviesView/MoviesView")
 ); /* webpackChunkName: "MoviesView"  */

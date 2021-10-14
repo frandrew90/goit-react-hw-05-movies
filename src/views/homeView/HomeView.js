@@ -10,7 +10,7 @@ const HomeView = () => {
     getTrendingMovies().then((movies) => setTrendingMovies(movies));
   }, []);
 
-  console.log(trendingMovies);
+  //   console.log(trendingMovies);
 
   return (
     <section>
