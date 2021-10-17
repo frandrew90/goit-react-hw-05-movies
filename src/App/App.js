@@ -19,7 +19,7 @@ const NotFoundView = lazy(() =>
 const App = () => {
   return (
     <>
-      <Header className={s.header} />
+      <Header />
 
       <Suspense fallback={<Loader />}>
         <Switch>

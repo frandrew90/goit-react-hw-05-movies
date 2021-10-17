@@ -31,8 +31,8 @@ const MoviesPage = ({ movies }) => {
         </ul>
       ) : (
         <div>
-          <img src={error404} alt="There is no film" width="800" height="600" />
           <p>Something went wrong... There are no films...</p>
+          <img src={error404} alt="There is no film" width="800" height="600" />
         </div>
       )}
     </div>

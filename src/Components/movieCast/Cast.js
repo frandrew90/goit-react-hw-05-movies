@@ -26,8 +26,8 @@ const Cast = ({ movieID }) => {
               }
               alt={profile.name}
             />
-            <p>{profile.name}</p>
-            <p>Character: &#32; {profile.character}</p>
+            <p className={s.name}>{profile.name}</p>
+            <p className={s.character}>Character: &#32; {profile.character}</p>
           </li>
         ))}
     </ul>

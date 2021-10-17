@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 import { getMovieById } from "../../services/ApiService";
 import MovieDeteilsPage from "../../Components/movieDeteils/MovieDeteilsPage";
 
 const MovieDeteilsView = () => {
   const [movie, setMovie] = useState(null);
-  const location = useLocation();
-  const history = useHistory();
 
   const { movieID } = useParams();
-  const prevLocation = location?.state?.from?.location;
 
   useEffect(() => {
     getMovieById(movieID).then(setMovie);
-    //   .catch(history.push(prevLocation ?? "/movies"));
-  }, [movieID, history, prevLocation]);
+  }, [movieID]);
 
-  console.log(movieID);
+  // console.log(movieID);
   return <>{movie && <MovieDeteilsPage movie={movie} />}</>;
 };
 

@@ -4,7 +4,7 @@ import s from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
-    <nav>
+    <nav className={s.mainNav}>
       <NavLink
         exact
         to="/"
@@ -15,7 +15,6 @@ const Navigation = () => {
       </NavLink>
 
       <NavLink
-        exact
         to="/movies"
         className={s.navLink}
         activeClassName={s.navLinkActive}

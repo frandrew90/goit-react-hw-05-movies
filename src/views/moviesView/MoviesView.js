@@ -10,12 +10,12 @@ const MoviesView = () => {
   const location = useLocation();
   const history = useHistory();
 
-  console.log("location", location);
-  console.log("history", history);
+  //   console.log("location", location);
+  //   console.log("history", history);
 
   const savedQuery = new URLSearchParams(location.search).get("query") ?? "";
 
-  console.log(savedQuery);
+  //   console.log(savedQuery);
 
   useEffect(() => {
     savedQuery && getMovieBySearch(savedQuery).then(setMovies);
@@ -35,8 +35,8 @@ const MoviesView = () => {
     getMovieBySearch(searchQuery).then(setMovies);
   };
 
-  console.log(searchQuery);
-  console.log(movies);
+  //   console.log(searchQuery);
+  //   console.log(movies);
 
   return (
     <section>

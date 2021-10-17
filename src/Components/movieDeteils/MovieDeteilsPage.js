@@ -32,10 +32,10 @@ const MovieDeteilsPage = ({ movie }) => {
   //   console.log(movieID);
   return (
     <>
-      <button type="button" onClick={onGoBack}>
+      <button className={s.goBack} type="button" onClick={onGoBack}>
         {location?.state?.from?.label ?? "Go back"}
       </button>
-      <div>
+      <div className={s.filmWrapper}>
         <img
           className={s.poster}
           src={
@@ -45,22 +45,26 @@ const MovieDeteilsPage = ({ movie }) => {
           }
           alt={movie.title}
         />
-        <h1>
-          {movie.title}({normolizedDate})
-        </h1>
-        <p>User Score: {normolizedRate} % </p>
-        <p>Overview </p>
-        <p>{movie.overview ? movie.overview : "There are no any overviews"}</p>
-        <p>Genres </p>
-        {movie.genres.map((gener) => (
-          <span key={gener.name} className={s.genersItem}>
-            {gener.name}
-          </span>
-        ))}
+        <div>
+          <h1 className={s.movieTitle}>
+            {movie.title}({normolizedDate})
+          </h1>
+          <p>User Score: {normolizedRate} % </p>
+          <p className={s.movieSubTitle}>Overview </p>
+          <p>
+            {movie.overview ? movie.overview : "There are no any overviews"}
+          </p>
+          <p className={s.movieSubTitle}>Genres </p>
+          {movie.genres.map((gener) => (
+            <span key={gener.name} className={s.genersItem}>
+              {gener.name}
+            </span>
+          ))}
+        </div>
       </div>
       <div>
         <h2>Additional info</h2>
-        <ul>
+        <ul className={s.additionalList}>
           <li>
             <NavLink
               className={s.navLink}

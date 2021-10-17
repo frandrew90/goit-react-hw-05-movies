@@ -1,10 +1,6 @@
 .poster {
   width: 300px;
   height: 450px;
-}
-
-.genersItem {
-  display: inline-block;
   margin-right: 10px;
 }
 
@@ -16,4 +12,32 @@
 .navLinkActive {
   font-weight: 500;
   color: #00bfff;
+}
+
+.goBack {
+  margin-bottom: 5px;
+}
+
+.filmWrapper {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.movieTitle {
+  margin-bottom: 20px;
+}
+
+.movieSubTitle {
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.genersItem {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.additionalList {
+  margin-bottom: 10px;
 }

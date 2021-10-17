@@ -17,7 +17,7 @@ const Reviews = ({ movieID }) => {
       {reviews && reviews.length !== 0
         ? reviews.map((review) => (
             <li key={review.id}>
-              <p>Author: {review.author}</p>
+              <p className={s.authorName}>Author: {review.author}</p>
               <p>{review.content}</p>
             </li>
           ))

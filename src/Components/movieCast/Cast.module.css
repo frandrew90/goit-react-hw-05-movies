@@ -2,3 +2,13 @@
   width: 167px;
   height: 250px;
 }
+
+.name {
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.character {
+  font-weight: 500;
+  margin: 15px 0;
+}
