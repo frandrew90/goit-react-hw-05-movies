@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getReviews } from "../../services/ApiService";
-
+import PropTypes from "prop-types";
 import s from "./Reviews.module.css";
 
 const Reviews = ({ movieID }) => {
@@ -10,7 +10,7 @@ const Reviews = ({ movieID }) => {
     getReviews(movieID).then(setReviews);
   }, [movieID]);
 
-  console.log("rev", reviews);
+  // console.log("rev", reviews);
 
   return (
     <ul>
@@ -27,3 +27,7 @@ const Reviews = ({ movieID }) => {
 };
 
 export default Reviews;
+
+Reviews.propTypes = {
+  movieID: PropTypes.string.isRequired,
+};

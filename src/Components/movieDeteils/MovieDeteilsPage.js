@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import s from "./MovieDeteilsPage.module.css";
 import error404 from "../../images/404error.png";
+import PropTypes from "prop-types";
 import {
   Route,
   useHistory,
@@ -16,7 +17,6 @@ const Reviews = lazy(() => import("../moviesReview/Reviews"));
 const MovieDeteilsPage = ({ movie }) => {
   const normolizedDate = new Date(movie.release_date).getFullYear();
   const normolizedRate = movie.vote_average * 10;
-
   const { url } = useRouteMatch();
 
   const { movieID } = useParams();
@@ -103,3 +103,7 @@ const MovieDeteilsPage = ({ movie }) => {
 };
 
 export default MovieDeteilsPage;
+
+MovieDeteilsPage.propTypes = {
+  movieID: PropTypes.object,
+};

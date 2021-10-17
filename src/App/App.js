@@ -1,5 +1,4 @@
 import React, { Suspense, lazy } from "react";
-// import { Switch, Route } from "react-router";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import HomeView from "../views/homeView/HomeView";

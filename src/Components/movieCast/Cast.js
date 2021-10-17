@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getCast } from "../../services/ApiService";
 import error404 from "../../images/404error.png";
 import s from "./Cast.module.css";
+import PropTypes from "prop-types";
 
 const Cast = ({ movieID }) => {
   const [cast, setCast] = useState(null);
@@ -10,7 +11,7 @@ const Cast = ({ movieID }) => {
     getCast(movieID).then(setCast);
   }, [movieID]);
 
-  console.log(cast);
+  // console.log(cast);
 
   return (
     <ul>
@@ -35,3 +36,7 @@ const Cast = ({ movieID }) => {
 };
 
 export default Cast;
+
+Cast.propTypes = {
+  movieID: PropTypes.string.isRequired,
+};

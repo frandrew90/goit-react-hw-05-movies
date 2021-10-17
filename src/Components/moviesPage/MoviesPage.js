@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import error404 from "../../images/404error.png";
+import PropTypes from "prop-types";
 
 import s from "./MoviesPage.module.css";
 
@@ -40,3 +41,7 @@ const MoviesPage = ({ movies }) => {
 };
 
 export default MoviesPage;
+
+MoviesPage.propTypes = {
+  movies: PropTypes.array.isRequired,
+};

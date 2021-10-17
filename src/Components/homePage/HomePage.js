@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import s from "./HomePage.module.css";
+import PropTypes from "prop-types";
 
 const HomePage = ({ trendingMovies }) => {
   const location = useLocation();
@@ -26,3 +27,7 @@ const HomePage = ({ trendingMovies }) => {
 };
 
 export default HomePage;
+
+HomePage.propTypes = {
+  movies: PropTypes.array,
+};
