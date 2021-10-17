@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { getMovieBySearch } from "../../services/ApiService";
+import { useHistory, useLocation } from "react-router-dom";
+import MoviesPage from "../../Components/moviesPage/MoviesPage";
 
 const MoviesView = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState(null);
 
-  //   console.log(movies);
+  const location = useLocation();
+  const history = useHistory();
 
-  //   useEffect(() => {
-  //     searchQuery && getMovieBySearch(searchQuery).then(setMovies);
-  //   }, [searchQuery]);
+  console.log("location", location);
+  console.log("history", history);
 
-  //   setSearchQuery("batman");
+  const savedQuery = new URLSearchParams(location.search).get("query") ?? "";
+
+  console.log(savedQuery);
+
+  useEffect(() => {
+    savedQuery && getMovieBySearch(savedQuery).then(setMovies);
+  }, [savedQuery, location, history]);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -20,7 +28,11 @@ const MoviesView = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    searchQuery && getMovieBySearch(searchQuery).then(setMovies);
+    history.push({
+      ...location,
+      search: `query=${searchQuery}`,
+    });
+    getMovieBySearch(searchQuery).then(setMovies);
   };
 
   console.log(searchQuery);
@@ -28,7 +40,7 @@ const MoviesView = () => {
 
   return (
     <section>
-      <h1>Movies by search word: {searchQuery}</h1>
+      {/* <h1>Movies by search word: {searchQuery}</h1> */}
       <form onSubmit={onSubmit}>
         <input
           type="text"
@@ -38,6 +50,8 @@ const MoviesView = () => {
         />
         <button type="submit">Search</button>
       </form>
+
+      {movies && <MoviesPage movies={movies} />}
     </section>
   );
 };

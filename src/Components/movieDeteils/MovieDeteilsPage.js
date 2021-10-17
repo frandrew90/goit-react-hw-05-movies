@@ -1,7 +1,13 @@
-import React, { useEffect, useState, lazy } from "react";
+import React, { lazy } from "react";
 import s from "./MovieDeteilsPage.module.css";
 import error404 from "../../images/404error.png";
-import { Route, useParams, useRouteMatch } from "react-router";
+import {
+  Route,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+} from "react-router";
 import { NavLink } from "react-router-dom";
 // import { useParams } from "react-router";
 const Cast = lazy(() => import("../movieCast/Cast"));
@@ -13,16 +19,22 @@ const MovieDeteilsPage = ({ movie }) => {
 
   const { url } = useRouteMatch();
 
-  //   const [movie, setMovie] = useState(null);
-
   const { movieID } = useParams();
+  const history = useHistory();
+  const location = useLocation();
+
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? "/");
+  };
 
   //   useEffect(() => {});
 
   //   console.log(movieID);
   return (
     <>
-      <button type="button"> Go back</button>
+      <button type="button" onClick={onGoBack}>
+        {location?.state?.from?.label ?? "Go back"}
+      </button>
       <div>
         <img
           className={s.poster}
@@ -38,7 +50,7 @@ const MovieDeteilsPage = ({ movie }) => {
         </h1>
         <p>User Score: {normolizedRate} % </p>
         <p>Overview </p>
-        <p> {movie.overview} </p>
+        <p>{movie.overview ? movie.overview : "There are no any overviews"}</p>
         <p>Genres </p>
         {movie.genres.map((gener) => (
           <span key={gener.name} className={s.genersItem}>
@@ -53,7 +65,10 @@ const MovieDeteilsPage = ({ movie }) => {
             <NavLink
               className={s.navLink}
               activeClassName={s.navLinkActive}
-              to={`${url}/cast`}
+              to={{
+                pathname: `${url}/cast`,
+                state: location.state,
+              }}
             >
               Cast
             </NavLink>
@@ -62,17 +77,20 @@ const MovieDeteilsPage = ({ movie }) => {
             <NavLink
               className={s.navLink}
               activeClassName={s.navLinkActive}
-              to={`${url}/reviews`}
+              to={{
+                pathname: `${url}/reviews`,
+                state: location.state,
+              }}
             >
               Reviews
             </NavLink>
           </li>
         </ul>
-        <Route path={`/movies/${movieID}/cast`}>
+        <Route path={`${url}/cast`}>
           <Cast movieID={movieID} />
         </Route>
 
-        <Route path={`/movies/${movieID}/reviews`}>
+        <Route path={`${url}/reviews`}>
           <Reviews movieID={movieID} />
         </Route>
       </div>

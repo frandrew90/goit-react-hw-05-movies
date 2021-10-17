@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from "react";
-import { Switch, Route } from "react-router";
+// import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router-dom";
+
 import HomeView from "../views/homeView/HomeView";
 import Header from "../Components/header/Header";
 import Loader from "../Components/loader/Loader";
@@ -17,7 +19,7 @@ const NotFoundView = lazy(() =>
 const App = () => {
   return (
     <>
-      <Header />
+      <Header className={s.header} />
 
       <Suspense fallback={<Loader />}>
         <Switch>
@@ -36,6 +38,7 @@ const App = () => {
           <Route>
             <NotFoundView />
           </Route>
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     </>
